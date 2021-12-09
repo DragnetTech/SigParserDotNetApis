@@ -11,14 +11,18 @@ namespace SigParser.Tests
     [TestClass]
     public class BasicTests
     {
-        public string ApiKey = Environment.GetEnvironmentVariable("SigParserPackageTestApiKey");
-        
-        
+        public static string ApiKey = Environment.GetEnvironmentVariable("SigParserPackageTestApiKey");
+
+        [ClassInitialize]
+        public static void TestClassInit(TestContext context)
+        {
+            SigParser.Client.Configuration.ApiKey.Add("x-api-key", ApiKey);
+        }
         
         [TestMethod]
         public void Companies()
         {
-            SigParser.Client.Configuration.ApiKey.Add("x-api-key", ApiKey);
+            
             var companyApi = new CompaniesApi();
             var companies = companyApi.ApiCompaniesGet(lastmodifiedAfter: 0, take: 10, domain: null);
             Assert.AreNotEqual(0, companies.Count());
@@ -27,7 +31,7 @@ namespace SigParser.Tests
         [TestMethod]
         public void Contacts()
         {
-            SigParser.Client.Configuration.ApiKey.Add("x-api-key", ApiKey);
+            
             var contactsApi = new ContactsApi();
             var contacts = contactsApi.ApiContactsListPost(new DragnetTechSharedIPAASModelsRequestContactParam()
             {
@@ -41,7 +45,7 @@ namespace SigParser.Tests
         [TestMethod]
         public void Emails()
         {
-            SigParser.Client.Configuration.ApiKey.Add("x-api-key", ApiKey);
+            
             var emailsApi = new EmailsApi();
             var emails = emailsApi.ApiEmailsDistinctGet(ingestedAfter: 0);
             
@@ -52,7 +56,7 @@ namespace SigParser.Tests
         [TestMethod]
         public void Meetings()
         {
-            SigParser.Client.Configuration.ApiKey.Add("x-api-key", ApiKey);
+            
             var api = new MeetingsApi();
             var results = api.ApiMeetingsDistinctGet(lastmodifiedAfter: 0);
             
@@ -62,7 +66,7 @@ namespace SigParser.Tests
         [TestMethod]
         public void Parse_EML()
         {
-            SigParser.Client.Configuration.ApiKey.Add("x-api-key", ApiKey);
+           
             var api = new ParseApi();
             using var stream = System.IO.File.Open("example.eml", FileMode.Open);
             var results = api.ApiParseEmailContactMIMEPost(stream);
@@ -73,7 +77,7 @@ namespace SigParser.Tests
         [TestMethod]
         public void Parse_JSON()
         {
-            SigParser.Client.Configuration.ApiKey.Add("x-api-key", ApiKey);
+            
             var api = new ParseApi();
             
             var results = api.ApiParseEmailContactJSONPost(new IPaasAPIModelsParseEmailInputModel()
