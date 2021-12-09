@@ -1,0 +1,26 @@
+Call the following API:
+
+POST https://generator.swagger.io/api/gen/clients/csharp-dotnet2
+
+{
+    "options": {
+        "packageName": "SigParser",
+        "clientPackage": "SigParser.Client"
+    },
+    "swaggerUrl": "https://ipaas.sigparser.com/swagger/v1/swagger.json"
+}
+
+Download the file and copy and paste the contents into this directory.
+
+ApiClient.cs error
+=========================
+
+You'll need to fix a generation error with ApiClient.cs: https://github.com/swagger-api/swagger-codegen/issues/8303
+
+Find the line 
+
+	request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentType);
+
+And change it to 
+	
+	 request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType);
