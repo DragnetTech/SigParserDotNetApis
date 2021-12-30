@@ -27,7 +27,7 @@ jobs:
         if: success()
         run: |
           dotnet pack src/main/CsharpDotNet2/SigParser/SigParser.csproj -p:IncludeSymbols=false -p:SymbolPackageFormat=snupkg --configuration Release -p:PackageVersion=3.0.${GITHUB_RUN_NUMBER}
-          dotnet nuget push src/main/CsharpDotNet2/SigParser/bin/Release/SigParser.3.0.${GITHUB_RUN_NUMBER}.nupkg --api-key "${{ secrets.NUGET_SECRET }}"  
+          dotnet nuget push src/main/CsharpDotNet2/SigParser/bin/Release/SigParser.3.0.${GITHUB_RUN_NUMBER}.nupkg --api-key "${ secrets.NUGET_SECRET }"  
       
       
       
