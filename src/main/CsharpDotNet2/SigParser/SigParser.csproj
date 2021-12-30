@@ -1,7 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <PackageVersion>3.0.0</PackageVersion>
+        <Title>SigParser</Title>
+        <Authors>SigParser, Paul Mendoza</Authors>
+        <Description>Official helper library for calling the SigParser APIs. This includes email parsing and the data APIs. 
+
+Contact support@sigparser.com for any help.</Description>
+        <Copyright>SigParser</Copyright>
+        <PackageProjectUrl>https://sigparser.com/?utm_source=nuget&amp;utm_medium=projecturl</PackageProjectUrl>
+        <PackageLicenseUrl>https://sigparser.com/home/terms/?utm_source=nuget&amp;utm_medium=licenseurl</PackageLicenseUrl>
+        <PackageIconUrl>https://sigparser.com/images/logo.png</PackageIconUrl>
+        <RepositoryUrl>https://github.com/DragnetTech/SigParserDotNetApis</RepositoryUrl>
+        <RepositoryType>GitHub</RepositoryType>
+        <PackageTags>email, parsing, parse, email signature, email parts, split emails, email chain, email header</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
