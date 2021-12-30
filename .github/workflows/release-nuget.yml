@@ -11,7 +11,7 @@ jobs:
       AssentNonInteractive: true
     steps:
       - name: Print new build number
-        run: echo "Build number is Double Curlies ${{env:GITHUB_RUN_NUMBER}}"
+        run: echo "Build number is ${env:GITHUB_RUN_NUMBER}"
       - uses: actions/checkout@v2
         with:
           token: '${{ secrets.GITHUB_TOKEN }}'
@@ -26,8 +26,8 @@ jobs:
       - name: Create Nuget package SigParser.dll and publish
         if: success()
         run: |
-          dotnet pack src/main/CsharpDotNet2/SigParser/SigParser.csproj -p:IncludeSymbols=false -p:SymbolPackageFormat=snupkg --configuration Release -p:PackageVersion=3.0.${env:GITHUB_RUN_NUMBER}
-          dotnet nuget push src/main/CsharpDotNet2/SigParser/bin/Release/SigParser.3.0.${env:GITHUB_RUN_NUMBER}.nupkg --api-key "${{ secrets.NUGET_SECRET }}"  
+          dotnet pack src/main/CsharpDotNet2/SigParser/SigParser.csproj -p:IncludeSymbols=false -p:SymbolPackageFormat=snupkg --configuration Release -p:PackageVersion=3.0.${{env:GITHUB_RUN_NUMBER}}
+          dotnet nuget push src/main/CsharpDotNet2/SigParser/bin/Release/SigParser.3.0.${{env:GITHUB_RUN_NUMBER}}.nupkg --api-key "${{ secrets.NUGET_SECRET }}"  
       
       
       
