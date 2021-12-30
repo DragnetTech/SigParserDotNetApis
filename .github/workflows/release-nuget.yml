@@ -23,7 +23,7 @@ jobs:
           dotnet-version: '3.1.x'
       - name: Install dependencies
         run: dotnet restore
-     - name: Create Nuget package SigParser.dll and publish
+      - name: Create Nuget package SigParser.dll and publish
         if: success()
         run: |
           dotnet pack src/main/CsharpDotNet2/SigParser/SigParser.csproj -p:IncludeSymbols=false -p:SymbolPackageFormat=snupkg --configuration Release -p:PackageVersion=3.0.${env:GITHUB_RUN_NUMBER}
