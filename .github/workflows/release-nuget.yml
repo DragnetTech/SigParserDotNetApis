@@ -4,9 +4,7 @@ on:
   push:
     branches:
       - main # Default release branch
-    paths:
-      - '!README.md'
-
+    
 jobs:  
   publish:
     runs-on: ubuntu-20.04
