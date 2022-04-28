@@ -44,6 +44,14 @@ namespace SigParser.Model {
     public string Messageid { get; set; }
 
     /// <summary>
+    /// The mailbox specific conversation ID for this instance of the message.
+    /// </summary>
+    /// <value>The mailbox specific conversation ID for this instance of the message.</value>
+    [DataMember(Name="conversationid", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "conversationid")]
+    public string Conversationid { get; set; }
+
+    /// <summary>
     /// SigParser internal ID for the email. Use this when fetching a particular email.
     /// </summary>
     /// <value>SigParser internal ID for the email. Use this when fetching a particular email.</value>
@@ -63,6 +71,7 @@ namespace SigParser.Model {
       sb.Append("  Mailboxid: ").Append(Mailboxid).Append("\n");
       sb.Append("  MailboxName: ").Append(MailboxName).Append("\n");
       sb.Append("  Messageid: ").Append(Messageid).Append("\n");
+      sb.Append("  Conversationid: ").Append(Conversationid).Append("\n");
       sb.Append("  Id: ").Append(Id).Append("\n");
       sb.Append("}\n");
       return sb.ToString();

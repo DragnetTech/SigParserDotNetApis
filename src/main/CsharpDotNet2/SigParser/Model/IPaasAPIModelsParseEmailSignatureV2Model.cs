@@ -29,6 +29,14 @@ namespace SigParser.Model {
     public string FromDisplayname { get; set; }
 
     /// <summary>
+    /// The best matched company name from the email signature. Be warned that this isn't always a great match.                We suggest using a data vendor like Brandfetch or the free Creative Commons dataset from People Data Labs first and only using the company name from SigParser to fill in the gaps.
+    /// </summary>
+    /// <value>The best matched company name from the email signature. Be warned that this isn't always a great match.                We suggest using a data vendor like Brandfetch or the free Creative Commons dataset from People Data Labs first and only using the company name from SigParser to fill in the gaps.</value>
+    [DataMember(Name="company_name", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "company_name")]
+    public string CompanyName { get; set; }
+
+    /// <summary>
     /// Job title for the sender of the email.
     /// </summary>
     /// <value>Job title for the sender of the email.</value>
@@ -99,6 +107,7 @@ namespace SigParser.Model {
       sb.Append("class IPaasAPIModelsParseEmailSignatureV2Model {\n");
       sb.Append("  FromAddress: ").Append(FromAddress).Append("\n");
       sb.Append("  FromDisplayname: ").Append(FromDisplayname).Append("\n");
+      sb.Append("  CompanyName: ").Append(CompanyName).Append("\n");
       sb.Append("  JobTitle: ").Append(JobTitle).Append("\n");
       sb.Append("  Phones: ").Append(Phones).Append("\n");
       sb.Append("  Address: ").Append(Address).Append("\n");

@@ -91,7 +91,7 @@ namespace SigParser.Api
         /// <param name="icaluid">iCalUID for the meeting to search for. Will return the best meeting record for this iCalUID across all the mailboxes.</param> 
         /// <param name="domain">Fetch meetings by the email domain. Can only use \&quot;take\&quot; and \&quot;page\&quot; with this parameter. Doesn&#39;t work for free email providers like gmail.com or yahoo.com along with many other non-corporate domains.</param> 
         /// <returns>List&lt;DragnetTechSharedIPAASModelsMeetingOutputModel&gt;</returns>            
-        public List<DragnetTechSharedIPAASModelsMeetingOutputModel> ApiMeetingsDistinctGet (DateTime? dateMax = null, DateTime? dateMin = null, int? take = null, int? page = null, string emailaddress = null, long? lastmodifiedAfter = null, string icaluid = null, string domain = null)
+        public List<DragnetTechSharedIPAASModelsMeetingOutputModel> ApiMeetingsDistinctGet (DateTime? dateMax, DateTime? dateMin, int? take, int? page, string emailaddress, long? lastmodifiedAfter, string icaluid, string domain)
         {
             
     

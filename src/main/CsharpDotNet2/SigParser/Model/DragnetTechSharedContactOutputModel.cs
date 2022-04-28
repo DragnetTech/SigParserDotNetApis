@@ -511,6 +511,93 @@ namespace SigParser.Model {
     [JsonProperty(PropertyName = "internal_id")]
     public Guid? InternalId { get; set; }
 
+    /// <summary>
+    /// Count of individuals listed as Coworkers with whom this contact has had interactions.
+    /// </summary>
+    /// <value>Count of individuals listed as Coworkers with whom this contact has had interactions.</value>
+    [DataMember(Name="relationships_coworker", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "relationships_coworker")]
+    public int? RelationshipsCoworker { get; set; }
+
+    /// <summary>
+    /// Count of individuals within the same company with whom this contact has had interactions.
+    /// </summary>
+    /// <value>Count of individuals within the same company with whom this contact has had interactions.</value>
+    [DataMember(Name="relationships_company", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "relationships_company")]
+    public int? RelationshipsCompany { get; set; }
+
+    /// <summary>
+    /// Gets or Sets RelationshipsOther
+    /// </summary>
+    [DataMember(Name="relationships_other", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "relationships_other")]
+    public int? RelationshipsOther { get; set; }
+
+    /// <summary>
+    /// Email addresses of the top 5 Coworkers (internal) to your company who know this contact the best based on interactions.
+    /// </summary>
+    /// <value>Email addresses of the top 5 Coworkers (internal) to your company who know this contact the best based on interactions.</value>
+    [DataMember(Name="relationships_coworker_emailaddresses", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "relationships_coworker_emailaddresses")]
+    public List<string> RelationshipsCoworkerEmailaddresses { get; set; }
+
+    /// <summary>
+    /// Email addresses of the top 5 contacts who work at the same company who have been on emails and meetings.
+    /// </summary>
+    /// <value>Email addresses of the top 5 contacts who work at the same company who have been on emails and meetings.</value>
+    [DataMember(Name="relationships_company_emailaddresses", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "relationships_company_emailaddresses")]
+    public List<string> RelationshipsCompanyEmailaddresses { get; set; }
+
+    /// <summary>
+    /// Email addresses of the top 5 people who have been on emails with this contact from other companies.
+    /// </summary>
+    /// <value>Email addresses of the top 5 people who have been on emails with this contact from other companies.</value>
+    [DataMember(Name="relationships_other_emailaddresses", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "relationships_other_emailaddresses")]
+    public List<string> RelationshipsOtherEmailaddresses { get; set; }
+
+    /// <summary>
+    /// Email address of an internal person with the most emails and meetings with this contact.
+    /// </summary>
+    /// <value>Email address of an internal person with the most emails and meetings with this contact.</value>
+    [DataMember(Name="internal_contact_most_active", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "internal_contact_most_active")]
+    public string InternalContactMostActive { get; set; }
+
+    /// <summary>
+    /// Email address of an internal person with the first email or meeting with this contact.
+    /// </summary>
+    /// <value>Email address of an internal person with the first email or meeting with this contact.</value>
+    [DataMember(Name="internal_contact_first", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "internal_contact_first")]
+    public string InternalContactFirst { get; set; }
+
+    /// <summary>
+    /// Date of first email or meeting with an internal contact referring to field: internal_contact_first.
+    /// </summary>
+    /// <value>Date of first email or meeting with an internal contact referring to field: internal_contact_first.</value>
+    [DataMember(Name="internal_contact_first_date", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "internal_contact_first_date")]
+    public DateTime? InternalContactFirstDate { get; set; }
+
+    /// <summary>
+    /// Email address of an internal person with the most recent interactions with this contact.
+    /// </summary>
+    /// <value>Email address of an internal person with the most recent interactions with this contact.</value>
+    [DataMember(Name="internal_contact_latest", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "internal_contact_latest")]
+    public string InternalContactLatest { get; set; }
+
+    /// <summary>
+    /// Date of most recent email or meeting with an internal contact referring to field: internal_contact_latest.
+    /// </summary>
+    /// <value>Date of most recent email or meeting with an internal contact referring to field: internal_contact_latest.</value>
+    [DataMember(Name="internal_contact_latest_date", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "internal_contact_latest_date")]
+    public DateTime? InternalContactLatestDate { get; set; }
+
 
     /// <summary>
     /// Get the string presentation of the object
@@ -582,6 +669,17 @@ namespace SigParser.Model {
       sb.Append("  MailboxesCsv: ").Append(MailboxesCsv).Append("\n");
       sb.Append("  PotentialParsingError: ").Append(PotentialParsingError).Append("\n");
       sb.Append("  InternalId: ").Append(InternalId).Append("\n");
+      sb.Append("  RelationshipsCoworker: ").Append(RelationshipsCoworker).Append("\n");
+      sb.Append("  RelationshipsCompany: ").Append(RelationshipsCompany).Append("\n");
+      sb.Append("  RelationshipsOther: ").Append(RelationshipsOther).Append("\n");
+      sb.Append("  RelationshipsCoworkerEmailaddresses: ").Append(RelationshipsCoworkerEmailaddresses).Append("\n");
+      sb.Append("  RelationshipsCompanyEmailaddresses: ").Append(RelationshipsCompanyEmailaddresses).Append("\n");
+      sb.Append("  RelationshipsOtherEmailaddresses: ").Append(RelationshipsOtherEmailaddresses).Append("\n");
+      sb.Append("  InternalContactMostActive: ").Append(InternalContactMostActive).Append("\n");
+      sb.Append("  InternalContactFirst: ").Append(InternalContactFirst).Append("\n");
+      sb.Append("  InternalContactFirstDate: ").Append(InternalContactFirstDate).Append("\n");
+      sb.Append("  InternalContactLatest: ").Append(InternalContactLatest).Append("\n");
+      sb.Append("  InternalContactLatestDate: ").Append(InternalContactLatestDate).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

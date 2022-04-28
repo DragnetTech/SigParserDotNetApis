@@ -87,7 +87,7 @@ namespace SigParser.Api
         /// <param name="id">ID of the message to retrieve.</param> 
         /// <param name="domain">Fetch emails by the email domain. Can only use \&quot;take\&quot; and \&quot;page\&quot; with this parameter. Doesn&#39;t work for free email providers like gmail.com or yahoo.com along with many other non-corporate domains.</param> 
         /// <returns>List&lt;DragnetTechSharedIPAASModelsEmailOutputModel&gt;</returns>            
-        public List<DragnetTechSharedIPAASModelsEmailOutputModel> ApiEmailsDistinctGet (long? ingestedAfter = null, int? take = null, int? page = null, string emailaddress = null, Guid? id = null, string domain = null)
+        public List<DragnetTechSharedIPAASModelsEmailOutputModel> ApiEmailsDistinctGet (long? ingestedAfter, int? take, int? page, string emailaddress, Guid? id, string domain)
         {
             
     

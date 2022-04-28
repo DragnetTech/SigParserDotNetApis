@@ -11,29 +11,28 @@ namespace SigParser.Model {
   /// 
   /// </summary>
   [DataContract]
-  public class DragnetTechSharedIPAASModelsRequestContactParam
-  {
+  public class DragnetTechSharedIPAASModelsRequestContactParam {
     /// <summary>
-    /// Which contacts should be in the \"relationship_metrics\" field.    INTERNAL = Only contacts internal to your organization (ie. your coworkers).   EXTERNAL = Only contacts within your organization.  ALL = Both INTERNAL and EXTERNAL contacts.
+    /// Which contacts should be in the \"relationship_metrics\" field.    INTERNAL = Only contacts internal to your organization (ie. your coworkers).   EXTERNAL = Only contacts outside of your organization.  ALL = Both INTERNAL and EXTERNAL contacts.
     /// </summary>
-    /// <value>Which contacts should be in the \"relationship_metrics\" field.    INTERNAL = Only contacts internal to your organization (ie. your coworkers).   EXTERNAL = Only contacts within your organization.  ALL = Both INTERNAL and EXTERNAL contacts.</value>
-    [DataMember(Name = "expand_relationship_metrics_type", EmitDefaultValue = false)]
+    /// <value>Which contacts should be in the \"relationship_metrics\" field.    INTERNAL = Only contacts internal to your organization (ie. your coworkers).   EXTERNAL = Only contacts outside of your organization.  ALL = Both INTERNAL and EXTERNAL contacts.</value>
+    [DataMember(Name="expand_relationship_metrics_type", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "expand_relationship_metrics_type")]
-    public string ExpandRelationshipMetricsType { get; set; } = "ALL";
+    public string ExpandRelationshipMetricsType { get; set; }
 
     /// <summary>
     /// Should SigParser return contacts it thinks might have email parsing errors. For example, bad phone numbers. Default \"false\"
     /// </summary>
     /// <value>Should SigParser return contacts it thinks might have email parsing errors. For example, bad phone numbers. Default \"false\"</value>
-    [DataMember(Name = "include_incorrectly_parsed_contacts", EmitDefaultValue = false)]
+    [DataMember(Name="include_incorrectly_parsed_contacts", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "include_incorrectly_parsed_contacts")]
-    public bool IncludeIncorrectlyParsedContacts { get; set; } = false;
+    public bool? IncludeIncorrectlyParsedContacts { get; set; }
 
     /// <summary>
     /// Order by options:                - lastmodified - Date the contact was last modified (great for fetching a delta of contact changes).  - created - Date the contact was created in SigParser.  - interactions - Total number of emails + meetings the contact has appeared on.    Defaults to lastmodified
     /// </summary>
     /// <value>Order by options:                - lastmodified - Date the contact was last modified (great for fetching a delta of contact changes).  - created - Date the contact was created in SigParser.  - interactions - Total number of emails + meetings the contact has appeared on.    Defaults to lastmodified</value>
-    [DataMember(Name = "orderby", EmitDefaultValue = false)]
+    [DataMember(Name="orderby", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "orderby")]
     public string Orderby { get; set; }
 
@@ -41,25 +40,25 @@ namespace SigParser.Model {
     /// Determines the direction of the sort.
     /// </summary>
     /// <value>Determines the direction of the sort.</value>
-    [DataMember(Name = "orderbyasc", EmitDefaultValue = false)]
+    [DataMember(Name="orderbyasc", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "orderbyasc")]
-    public bool Orderbyasc { get; set; } = false;
+    public bool? Orderbyasc { get; set; }
 
     /// <summary>
     /// Page 1 is the first page of results.
     /// </summary>
     /// <value>Page 1 is the first page of results.</value>
-    [DataMember(Name = "page", EmitDefaultValue = false)]
+    [DataMember(Name="page", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "page")]
-    public int Page { get; set; } = 1;
+    public int? Page { get; set; }
 
     /// <summary>
     /// How many records per page. If using \"lastmodified_after\" then this is always at least 25. Max 200. If expand_relationship_metrics is
     /// </summary>
     /// <value>How many records per page. If using \"lastmodified_after\" then this is always at least 25. Max 200. If expand_relationship_metrics is</value>
-    [DataMember(Name = "take", EmitDefaultValue = false)]
+    [DataMember(Name="take", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "take")]
-    public int Take { get; set; } = 25;
+    public int? Take { get; set; }
 
     /// <summary>
     /// This is the ID of the tag. A tag can have types. This isn't the name of the tag. It will look like a uuid/Guid
@@ -89,25 +88,25 @@ namespace SigParser.Model {
     /// Include the relationship_metrics array on each contact in the response. Default = false.  This can add a lot of size to the response payload so  so it is suggest you not include it when you don't need it.
     /// </summary>
     /// <value>Include the relationship_metrics array on each contact in the response. Default = false.  This can add a lot of size to the response payload so  so it is suggest you not include it when you don't need it.</value>
-    [DataMember(Name = "expand_relationship_metrics", EmitDefaultValue = false)]
+    [DataMember(Name="expand_relationship_metrics", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "expand_relationship_metrics")]
-    public bool ExpandRelationshipMetrics { get; set; } = false;
+    public bool? ExpandRelationshipMetrics { get; set; }
 
     /// <summary>
     /// Expand the history within the relationship metrics. This may expand the response size of the request considerably.
     /// </summary>
     /// <value>Expand the history within the relationship metrics. This may expand the response size of the request considerably.</value>
-    [DataMember(Name = "expand_relationship_metrics_history", EmitDefaultValue = false)]
+    [DataMember(Name="expand_relationship_metrics_history", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "expand_relationship_metrics_history")]
-    public bool? ExpandRelationshipMetricsHistory { get; set; } = false;
+    public bool? ExpandRelationshipMetricsHistory { get; set; }
 
     /// <summary>
     /// Should SigParser return contacts it thinks are bots or not real relationship contacts. Default \"false\"
     /// </summary>
     /// <value>Should SigParser return contacts it thinks are bots or not real relationship contacts. Default \"false\"</value>
-    [DataMember(Name = "include_spam_contacts", EmitDefaultValue = false)]
+    [DataMember(Name="include_spam_contacts", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "include_spam_contacts")]
-    public bool IncludeSpamContacts { get; set; } = false;
+    public bool? IncludeSpamContacts { get; set; }
 
     /// <summary>
     /// Fetch contacts by email domain. Won't return contacts in an email domain that is public like gmail.com or yahoo.com.  The @ symbol is optional.

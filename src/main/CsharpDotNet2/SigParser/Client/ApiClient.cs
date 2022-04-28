@@ -217,7 +217,7 @@ namespace SigParser.Client
         {
             try
             {
-                return obj != null ? JsonConvert.SerializeObject(obj) : null;
+                return obj != null ? JsonConvert.SerializeObject(obj, new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore }) : null;
             }
             catch (Exception e)
             {

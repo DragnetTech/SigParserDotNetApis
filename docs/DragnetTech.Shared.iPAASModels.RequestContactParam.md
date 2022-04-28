@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExpandRelationshipMetricsType** | **string** | Which contacts should be in the \&quot;relationship_metrics\&quot; field.    INTERNAL &#x3D; Only contacts internal to your organization (ie. your coworkers).   EXTERNAL &#x3D; Only contacts within your organization.  ALL &#x3D; Both INTERNAL and EXTERNAL contacts. | [optional] 
+**ExpandRelationshipMetricsType** | **string** | Which contacts should be in the \&quot;relationship_metrics\&quot; field.    INTERNAL &#x3D; Only contacts internal to your organization (ie. your coworkers).   EXTERNAL &#x3D; Only contacts outside of your organization.  ALL &#x3D; Both INTERNAL and EXTERNAL contacts. | [optional] 
 **IncludeIncorrectlyParsedContacts** | **bool?** | Should SigParser return contacts it thinks might have email parsing errors. For example, bad phone numbers. Default \&quot;false\&quot; | [optional] 
 **Orderby** | **string** | Order by options:                - lastmodified - Date the contact was last modified (great for fetching a delta of contact changes).  - created - Date the contact was created in SigParser.  - interactions - Total number of emails + meetings the contact has appeared on.    Defaults to lastmodified | [optional] 
 **Orderbyasc** | **bool?** | Determines the direction of the sort. | [optional] 

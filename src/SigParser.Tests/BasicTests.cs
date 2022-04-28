@@ -35,7 +35,8 @@ namespace SigParser.Tests
             var contactsApi = new ContactsApi();
             var contacts = contactsApi.ApiContactsListPost(new DragnetTechSharedIPAASModelsRequestContactParam()
             {
-
+                Page = 1,
+                Take = 25
             });
             
             Assert.AreNotEqual(0, contacts.Count());
@@ -47,7 +48,7 @@ namespace SigParser.Tests
         {
             
             var emailsApi = new EmailsApi();
-            var emails = emailsApi.ApiEmailsDistinctGet(ingestedAfter: 0);
+            var emails = emailsApi.ApiEmailsDistinctGet(ingestedAfter: 0, take: null, page: null, emailaddress: null, id: null, domain: null);
             
             Assert.AreNotEqual(0, emails.Count());
 
@@ -58,7 +59,7 @@ namespace SigParser.Tests
         {
             
             var api = new MeetingsApi();
-            var results = api.ApiMeetingsDistinctGet(lastmodifiedAfter: 0);
+            var results = api.ApiMeetingsDistinctGet(lastmodifiedAfter: 0, take: null, page: null, emailaddress: null, domain: null, icaluid: null, dateMax: null, dateMin: null);
             
             Assert.AreNotEqual(0, results.Count());
         }

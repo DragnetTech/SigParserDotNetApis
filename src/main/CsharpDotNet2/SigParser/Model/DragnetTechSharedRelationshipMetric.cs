@@ -13,6 +13,22 @@ namespace SigParser.Model {
   [DataContract]
   public class DragnetTechSharedRelationshipMetric {
     /// <summary>
+    /// Email address of the other person in this relationship.
+    /// </summary>
+    /// <value>Email address of the other person in this relationship.</value>
+    [DataMember(Name="otherperson", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "otherperson")]
+    public string Otherperson { get; set; }
+
+    /// <summary>
+    /// String value indicating the type of relationship with this contact
+    /// </summary>
+    /// <value>String value indicating the type of relationship with this contact</value>
+    [DataMember(Name="type", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "type")]
+    public string Type { get; set; }
+
+    /// <summary>
     /// Is the \"otherperson\" record an internal contact? These are often the most important relationships you want to look at.
     /// </summary>
     /// <value>Is the \"otherperson\" record an internal contact? These are often the most important relationships you want to look at.</value>
@@ -21,12 +37,20 @@ namespace SigParser.Model {
     public bool? Isotherpersoninternal { get; set; }
 
     /// <summary>
-    /// Email address of the other person in this relationship.
+    /// String value indicating most up to date \"Name\" for this contact.
     /// </summary>
-    /// <value>Email address of the other person in this relationship.</value>
-    [DataMember(Name="otherperson", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "otherperson")]
-    public string Otherperson { get; set; }
+    /// <value>String value indicating most up to date \"Name\" for this contact.</value>
+    [DataMember(Name="name", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "name")]
+    public string Name { get; set; }
+
+    /// <summary>
+    /// String value indicating most up to date \"Title\" for this contact.
+    /// </summary>
+    /// <value>String value indicating most up to date \"Title\" for this contact.</value>
+    [DataMember(Name="title", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "title")]
+    public string Title { get; set; }
 
     /// <summary>
     /// Number of emails between these two people.
@@ -156,8 +180,11 @@ namespace SigParser.Model {
     public override string ToString()  {
       var sb = new StringBuilder();
       sb.Append("class DragnetTechSharedRelationshipMetric {\n");
-      sb.Append("  Isotherpersoninternal: ").Append(Isotherpersoninternal).Append("\n");
       sb.Append("  Otherperson: ").Append(Otherperson).Append("\n");
+      sb.Append("  Type: ").Append(Type).Append("\n");
+      sb.Append("  Isotherpersoninternal: ").Append(Isotherpersoninternal).Append("\n");
+      sb.Append("  Name: ").Append(Name).Append("\n");
+      sb.Append("  Title: ").Append(Title).Append("\n");
       sb.Append("  Emails: ").Append(Emails).Append("\n");
       sb.Append("  PersonSent: ").Append(PersonSent).Append("\n");
       sb.Append("  PersonCc: ").Append(PersonCc).Append("\n");

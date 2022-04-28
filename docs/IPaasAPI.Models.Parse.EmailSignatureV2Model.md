@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FromAddress** | **string** | Email address of the sender of the email. | [optional] 
 **FromDisplayname** | **string** | Display name for the sender of the email. | [optional] 
+**CompanyName** | **string** | The best matched company name from the email signature. Be warned that this isn&#39;t always a great match.                We suggest using a data vendor like Brandfetch or the free Creative Commons dataset from People Data Labs first and only using the company name from SigParser to fill in the gaps. | [optional] 
 **JobTitle** | **string** | Job title for the sender of the email. | [optional] 
 **Phones** | [**List&lt;IPaasAPIModelsParseEmailSignatureV2ModelPhoneDetails&gt;**](IPaasAPIModelsParseEmailSignatureV2ModelPhoneDetails.md) |  | [optional] 
 **Address** | **string** | The full address extracted from the signature. | [optional] 

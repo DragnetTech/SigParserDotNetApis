@@ -66,6 +66,17 @@ Name | Type | Description | Notes
 **MailboxesCsv** | **string** | CSV list of the mailboxes this contact appeared in. Useful for mapping into a field in the CRM or destination system. | [optional] 
 **PotentialParsingError** | **bool?** | SigParser may incorrectly associate contact data from an internal contact to an external contact or  there may be some issues with the quality of the contact parse. This field indicates if SigParser thinks  there may be an issue with the quality of the data. We suggest not pushing this data to the CRM in these cases  or at least the contact data like phone numbers, titles and addresses. The statistics should still be accurate. | [optional] 
 **InternalId** | **Guid?** | Internal ID for the contact in SigParser. | [optional] 
+**RelationshipsCoworker** | **int?** | Count of individuals listed as Coworkers with whom this contact has had interactions. | [optional] 
+**RelationshipsCompany** | **int?** | Count of individuals within the same company with whom this contact has had interactions. | [optional] 
+**RelationshipsOther** | **int?** |  | [optional] 
+**RelationshipsCoworkerEmailaddresses** | **List&lt;string&gt;** | Email addresses of the top 5 Coworkers (internal) to your company who know this contact the best based on interactions. | [optional] 
+**RelationshipsCompanyEmailaddresses** | **List&lt;string&gt;** | Email addresses of the top 5 contacts who work at the same company who have been on emails and meetings. | [optional] 
+**RelationshipsOtherEmailaddresses** | **List&lt;string&gt;** | Email addresses of the top 5 people who have been on emails with this contact from other companies. | [optional] 
+**InternalContactMostActive** | **string** | Email address of an internal person with the most emails and meetings with this contact. | [optional] 
+**InternalContactFirst** | **string** | Email address of an internal person with the first email or meeting with this contact. | [optional] 
+**InternalContactFirstDate** | **DateTime?** | Date of first email or meeting with an internal contact referring to field: internal_contact_first. | [optional] 
+**InternalContactLatest** | **string** | Email address of an internal person with the most recent interactions with this contact. | [optional] 
+**InternalContactLatestDate** | **DateTime?** | Date of most recent email or meeting with an internal contact referring to field: internal_contact_latest. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

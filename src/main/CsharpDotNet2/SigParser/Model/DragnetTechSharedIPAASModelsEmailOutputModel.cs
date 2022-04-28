@@ -74,6 +74,46 @@ namespace SigParser.Model {
     [JsonProperty(PropertyName = "subject")]
     public string Subject { get; set; }
 
+    /// <summary>
+    /// The Message-IDs of other messages in the reply chain. https://datatracker.ietf.org/doc/html/rfc4021#page-11
+    /// </summary>
+    /// <value>The Message-IDs of other messages in the reply chain. https://datatracker.ietf.org/doc/html/rfc4021#page-11</value>
+    [DataMember(Name="references", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "references")]
+    public List<string> References { get; set; }
+
+    /// <summary>
+    /// Message-ID of the email that this email was in response to.
+    /// </summary>
+    /// <value>Message-ID of the email that this email was in response to.</value>
+    [DataMember(Name="in_reply_to", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "in_reply_to")]
+    public string InReplyTo { get; set; }
+
+    /// <summary>
+    /// This comes from the MIME Message-ID field. This is a globally unique value. Although it's optional most messages will have this.  See https://datatracker.ietf.org/doc/html/rfc2392#section-2
+    /// </summary>
+    /// <value>This comes from the MIME Message-ID field. This is a globally unique value. Although it's optional most messages will have this.  See https://datatracker.ietf.org/doc/html/rfc2392#section-2</value>
+    [DataMember(Name="internet_messageid", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "internet_messageid")]
+    public string InternetMessageid { get; set; }
+
+    /// <summary>
+    /// Zero based index for the position of the email in an email chain. Can be null. This is a calculated value.
+    /// </summary>
+    /// <value>Zero based index for the position of the email in an email chain. Can be null. This is a calculated value.</value>
+    [DataMember(Name="conversation_index", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "conversation_index")]
+    public int? ConversationIndex { get; set; }
+
+    /// <summary>
+    /// A derived conversation ID for this email conversation. This can change for a message if a new root message is discovered later.
+    /// </summary>
+    /// <value>A derived conversation ID for this email conversation. This can change for a message if a new root message is discovered later.</value>
+    [DataMember(Name="virtual_conversationid", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "virtual_conversationid")]
+    public string VirtualConversationid { get; set; }
+
 
     /// <summary>
     /// Get the string presentation of the object
@@ -90,6 +130,11 @@ namespace SigParser.Model {
       sb.Append("  Cc: ").Append(Cc).Append("\n");
       sb.Append("  Attachments: ").Append(Attachments).Append("\n");
       sb.Append("  Subject: ").Append(Subject).Append("\n");
+      sb.Append("  References: ").Append(References).Append("\n");
+      sb.Append("  InReplyTo: ").Append(InReplyTo).Append("\n");
+      sb.Append("  InternetMessageid: ").Append(InternetMessageid).Append("\n");
+      sb.Append("  ConversationIndex: ").Append(ConversationIndex).Append("\n");
+      sb.Append("  VirtualConversationid: ").Append(VirtualConversationid).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }
